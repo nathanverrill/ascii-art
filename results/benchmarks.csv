@@ -1,0 +1,17 @@
+image,model,task,done,total_s,load_s,in_tokens,out_tokens,tok_per_s,answer,grid_ok,char_acc
+circle.png,llama3.2:3b,describe,True,0.904077833,0.1913465,430,36,53.88560086935436,"This ASCII art depicts a stylized, futuristic spaceship with various components and details, including engines, control panels, and antennae, set against a dark or space-like background.",,
+circle.png,llama3.2:3b,flip,True,7.637144833,0.175437583,435,396,53.40999195748025,,True,0.976875
+circle.png,llama3.2:3b,invert,True,7.40688975,0.197773916,449,381,53.26710503210567,,False,0.0375
+circle.png,llama3.2:3b,edit,True,7.62531625,0.175386917,439,396,53.49778227375302,,True,
+gradient.png,llama3.2:3b,describe,True,0.626460708,0.189296166,598,21,55.211578656781164,"This ASCII art depicts a large, seemingly endless staircase made up of repeating patterns of '@' characters.",,
+gradient.png,llama3.2:3b,flip,True,84.453199125,0.198668833,603,4096,49.22383884557407,,False,0.0
+gradient.png,llama3.2:3b,invert,False,0.8668630123138428,0.0,0,0,0.0,,False,0.0
+gradient.png,llama3.2:3b,edit,True,84.460538125,0.193878375,607,4096,49.21408080694945,,False,
+smiley.png,llama3.2:3b,describe,True,1.638750084,0.199369417,477,28,55.32033437190675,"This ASCII art depicts a stylized, abstract representation of the Milky Way galaxy, with swirling patterns and shapes evoking the night sky.",,
+smiley.png,llama3.2:3b,flip,True,9.351929625,0.173688917,482,443,53.02207262204682,,True,0.935625
+smiley.png,llama3.2:3b,invert,True,9.195136,0.179043,496,433,53.014855668585895,,False,0.0271875
+smiley.png,llama3.2:3b,edit,True,9.791583417,0.189617792,486,463,52.93969676873471,,False,
+triangle.png,llama3.2:3b,describe,True,1.534130541,0.197767625,412,32,55.43640578063121,"This ASCII art depicts a staircase with 10 steps, each consisting of an increasing number of '@' symbols, forming a symmetrical and visually striking design.",,
+triangle.png,llama3.2:3b,flip,True,83.406331708,0.176642917,417,4096,49.652739335931706,,False,0.0075
+triangle.png,llama3.2:3b,invert,True,6.791009125,0.222493333,431,305,53.54301127650928,,False,0.0953125
+triangle.png,llama3.2:3b,edit,True,83.375412042,0.199185542,421,4096,49.68286659660283,,False,
