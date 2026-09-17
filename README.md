@@ -36,10 +36,13 @@ For each model and each task:
 - The models you want to test, pulled while you still have internet access:
 
   ```bash
-  ollama pull llama3.2:3b
-  ollama pull qwen2.5:7b
-  ollama pull gemma2:9b
+  # text models, all <= ~9 GB, sized for a 32 GB Apple Silicon Mac
+  for m in llama3.2:1b llama3.2:3b gemma3:4b qwen2.5:7b llama3.1:8b qwen3:8b gemma2:9b gemma3:12b phi4:14b; do ollama pull $m; done
+  # vision models for the pixel baseline
+  ollama pull llava:7b
   ```
+
+  The notebook loads one model at a time and unloads it when it's done, and skips any model that isn't installed.
 
 - Python packages:
 
@@ -60,7 +63,7 @@ ollama serve                        # in one terminal
 
 The notebook only tests models from `MODELS` that are installed. Put test images
 (`.png`) in `images/`; if the folder is empty, the notebook generates four simple shapes. Results are written to `results/`
-(`benchmarks.csv` plus the rendered PNGs).
+(`benchmarks.csv`, `vision_baseline.csv`, `report.html` and the rendered PNGs).
 
 ## Layout
 

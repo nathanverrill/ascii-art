@@ -4,6 +4,25 @@ The newest entries go at the top. Each entry covers what was done, what changed,
 
 ---
 
+## 2026-09-16: Models for a 32 GB machine; results layout
+
+- **Process:**
+  - Checked the machine: Apple M1 Pro with 32 GB RAM. Other apps were using about 10 GB, and the disk had 94 GB free (90% full).
+  - Downloaded the models one at a time with `ollama pull`.
+- **Decisions (models):**
+  - **Size limit of about 9 GB per model.** macOS lets the GPU use about 21 GB, so this leaves room for the context cache and other apps. I skipped 27B–32B models; they would squeeze other apps, and the disk is already tight.
+  - **Text models:** `llama3.2:1b`, `llama3.2:3b`, `gemma3:4b`, `qwen2.5:7b`, `llama3.1:8b`, `qwen3:8b`, `gemma2:9b`, `gemma3:12b` and `phi4:14b`.
+  - **Vision models for the baseline:** `llava:7b`, `gemma3:4b` and `gemma3:12b`. `VISION_MODEL` became a `VISION_MODELS` list, and baseline results are saved to `results/vision_baseline.csv`.
+  - **Download size.** The new models total about 50 GB.
+  - **One model in memory at a time.** Each model is loaded (with a warm-up call), run on all images and tasks, then unloaded with `keep_alive: 0`. The benchmark loop now goes model, then image, then task.
+  - **`qwen3`:** reasoning mode is turned off (`think: false`) so its timings are comparable and its output isn't padded with `<think>` text.
+- **Decisions (layout):**
+  - **Results grid.** The results section is now an HTML grid per image: the input (picture plus ASCII) on the left, then one row per model with one column per task. Stats are a small grey line under each response.
+  - **Nothing cut off.** Responses are never truncated: ASCII sits in `<pre>` blocks with no height limit, and very long lines scroll inside their own cell. The same grid is saved to `results/report.html`.
+  - **Full outputs saved.** Every response goes into the `output` column of `benchmarks.csv`.
+  - **Stats moved to the end.** The summary table and charts are now under "Stats", and the matplotlib side-by-side cell was removed. The vision baseline shows its full answers.
+  - **How it was checked.** I ran the notebook with the two llama3.2 models in the scratchpad and screenshotted `report.html` in headless Chrome.
+
 ## 2026-09-16: POC notebook built and run
 
 - **Process:**
